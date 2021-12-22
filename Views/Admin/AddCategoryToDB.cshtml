@@ -1,0 +1,40 @@
+﻿@model Ebook_Application.Models.Category
+
+@{
+    ViewBag.Title = "AddCategoryToDB";
+}
+
+<h2>AddCategoryToDB</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CategoryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Manage")
+</p>

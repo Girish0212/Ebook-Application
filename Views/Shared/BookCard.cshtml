@@ -1,0 +1,213 @@
+﻿@model Ebook_Application.Models.Book
+
+@{
+    Layout = "";
+}
+<style>
+    .book {
+        display: inline-block;
+        width: 230px;
+        height: 380px;
+        box-shadow: 0 0 20px #aaa;
+        margin: 25px;
+        padding: 10px 10px 0 10px;
+        vertical-align: top;
+        transition: height 1s;
+    }
+        /* star button */
+        .book:after {
+            font-family: FontAwesome;
+            font-size: 35px;
+            position: relative;
+            left: -.1cm;
+            top: -1.6cm;
+            float: right;
+        }
+
+    .cover {
+        border: 2px solid gray;
+        height: 80%;
+        overflow: hidden;
+    }
+
+        .cover img {
+            width: 100%;
+            filter: contrast(100%);
+        }
+
+    .book p {
+        margin-top: 12px;
+        font-size: 20px;
+    }
+
+    .book .Category {
+        font-size: 15px;
+    }
+
+
+    h1 {
+        color: gray;
+        text-align: center;
+        font-size: 50px;
+        margin-bottom: -3px;
+    }
+
+    /**********************************
+    display change
+    ***********************************/
+    /*book height smaller, cover opacity, move text onto cover and star too
+    animate it */
+    #list-th:target .book {
+        height: 100px;
+        width: 250px;
+        padding: 10px;
+        margin: 25px auto 25px auto;
+    }
+
+    #list-th:target .cover {
+        width: 246px;
+    }
+
+    #list-th:target img {
+        opacity: .1;
+    }
+
+    #list-th:target p {
+        margin-top: -62px;
+        margin-left: 20px;
+    }
+    /* remove button? */
+    #large-th:target .book {
+        height: 390px;
+    }
+
+    .cart-button {
+        border: 1px solid #80C850;
+        box-shadow: 0 1px 5px #333333;
+        -webkit-box-shadow: 0 1px 5px #333333;
+        -moz-box-shadow: 0 1px 5px #333333;
+        min-width: 225px;
+        color: #7ECA47;
+        border-color: #7ECA47;
+        background-color: #000000;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        font-size: 12px;
+    }
+
+    .cart-button {
+        height: 0px;
+        padding: 0px;
+        z-index: 50;
+        -webkit-box-shadow: 0 0 0 2px white;
+        -moz-box-shadow: 0 0 0 2px white;
+        box-shadow: 0 0 0 2px white;
+        -webkit-border-radius: 50em;
+        -moz-border-radius: 50em;
+        border-radius: 50em;
+    }
+
+    .cart-button {
+        display: inline-block;
+        padding: 1.4em 4em;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin: 1em 0;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        overflow: hidden;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+        .cart-button span {
+            position: absolute;
+            display: block;
+            bottom: 0;
+            left: 0;
+            color: white;
+            height: 100%;
+            width: 100%;
+            -webkit-transition: all 0.2s;
+            -moz-transition: all 0.2s;
+            -o-transition: all 0.2s;
+            transition: all 0.2s;
+            box-sizing: border-box;
+            padding: 8px;
+            /*    line-height: 68px;*/
+        }
+
+        .cart-button:hover span {
+            -webkit-transform: translateY(-100%);
+            -moz-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+            -o-transform: translateY(-100%);
+            transform: translateY(-100%);
+        }
+
+        .cart-button span::after {
+            content: '';
+            background: transparent url('https://i.imgur.com/yGrkyCM.png') no-repeat center center;
+            background-size: 25px 25px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 100%;
+            left: 0;
+        }
+</style>
+@*<script type="text/javascript">
+    function AddToCart(item){
+        var itemTd = $(item).attr("itemid");
+        var formData = new FormData();
+        formData.append("ItemId", itemId);
+
+        $.ajax({
+            async: true,
+            type: 'POST',
+            contentType: false,
+            processData: false,
+            data: formData,
+            url: '/Cart/',
+            success: function (data) {
+
+            },
+            error: function () {
+                alert("There is Some Problem")
+            }
+        });
+    }
+
+</script>*@
+
+
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+</head>
+
+<div class="book read">
+    <div class="cover">
+        <a href="@Url.Action("BookView","View",Model)" id="bookview">
+            <img src="~/BookImages/@Model.Image">
+        </a>
+    </div>
+    <div class="description">
+        <p class="title" style="color:black;">
+            @Model.BookName<br>
+            <span class="Category" style="color:black;">$@Model.BookPrice</span>
+            <a href="@Url.Action("AddToCart","Cart",Model)"  class="cart-button shadow" id="cartproduct" name="cartproduct">
+                <span>Buy Now</span>
+            </a>
+            
+        </p>
+    </div>
+</div>
+
+
+
+

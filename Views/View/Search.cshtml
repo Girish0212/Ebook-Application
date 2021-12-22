@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Ebook_Application.Models.Book>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Searched Results for @ViewBag.Search </h2>
+<div class="container-fluid">
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            @Html.Partial("BookCard", item)
+        }
+    </div>
+
+</div>
+
+
