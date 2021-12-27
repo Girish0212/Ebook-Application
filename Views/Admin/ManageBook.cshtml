@@ -26,9 +26,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Image)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookPrice)
-        </th>
+       
         <th></th>
     </tr>
 
@@ -53,9 +51,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Image)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookPrice)
-            </td>
+           
 
             <td>
                 @Html.ActionLink("Edit", "EditBook", new { id = item.BookId }) |

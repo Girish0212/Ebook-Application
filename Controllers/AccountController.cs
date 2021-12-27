@@ -151,6 +151,11 @@ namespace Ebook_Application.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (Decimal.Subtract(DateTime.Now.Year, model.DOB.Year) < 18 || Decimal.Subtract(DateTime.Now.Year, model.DOB.Year) > 60)
+                {
+                    ViewData["DOB"] = "Your age must be greater than 18 and less than 60";
+                    return View("Register");
+                }
                 var user = new ApplicationUser {UserName = model.Email, Email = model.Email, Fullname =model.FullName, Address = model.Address , DOB = model.DOB, PhoneNumber =model.PhoneNumber };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -422,6 +427,11 @@ namespace Ebook_Application.Controllers
 
             base.Dispose(disposing);
         }
+
+        //public ActionResult Page()
+        //{
+        //    return View();
+        //}
 
         #region Helpers
         // Used for XSRF protection when adding external logins

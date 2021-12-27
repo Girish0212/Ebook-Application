@@ -1,9 +1,0 @@
-﻿@model IEnumerable<Ebook_Application.Models.Book>
-@{
-    ViewBag.Title = "Home Page";
-}
-
-@foreach (var item in Model)
-{
-    @Html.Partial("BookCard", item)
-}

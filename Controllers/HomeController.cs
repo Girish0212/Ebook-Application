@@ -28,12 +28,12 @@ namespace Ebook_Application.Controllers
             }
         }
 
-        public ActionResult Contact()
+        public ActionResult Genre()
         {
             using (var database = new EbookContext())
             {
 
-                return View(database.Books.ToList());
+                return View(database.Categories.ToList());
             }
         }
     }

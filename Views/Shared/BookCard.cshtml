@@ -151,7 +151,7 @@
 
         .cart-button span::after {
             content: '';
-            background: transparent url('https://i.imgur.com/yGrkyCM.png') no-repeat center center;
+            background: transparent url('~/BookImages/download.png') no-repeat center center;
             background-size: 25px 25px;
             position: absolute;
             width: 100%;
@@ -160,29 +160,7 @@
             left: 0;
         }
 </style>
-@*<script type="text/javascript">
-    function AddToCart(item){
-        var itemTd = $(item).attr("itemid");
-        var formData = new FormData();
-        formData.append("ItemId", itemId);
 
-        $.ajax({
-            async: true,
-            type: 'POST',
-            contentType: false,
-            processData: false,
-            data: formData,
-            url: '/Cart/',
-            success: function (data) {
-
-            },
-            error: function () {
-                alert("There is Some Problem")
-            }
-        });
-    }
-
-</script>*@
 
 
 
@@ -199,10 +177,12 @@
     <div class="description">
         <p class="title" style="color:black;">
             @Model.BookName<br>
-            <span class="Category" style="color:black;">$@Model.BookPrice</span>
-            <a href="@Url.Action("AddToCart","Cart",Model)"  class="cart-button shadow" id="cartproduct" name="cartproduct">
-                <span>Buy Now</span>
-            </a>
+            <span class="Category" style="color:black;">@Model.CategoryName</span>
+            <span>
+                <a href="@Url.Action("DownloadBook", "UploadAndDownload", new { fileName = Model.BookName })" class="cart-button shadow" id="cartproduct" name="cartproduct">
+                    <span>Download</span>
+                </a>
+            </span>
             
         </p>
     </div>

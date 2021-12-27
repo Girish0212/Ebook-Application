@@ -44,17 +44,31 @@ namespace Ebook_Application.Controllers
             return new HttpNotFoundResult();
         }
 
-        public ActionResult AddCategoryToDB()
+        public ActionResult AddCategoryToDB(Category category)
         {
             if (User.IsInRole("Admin"))
             {
-                var model = new Category();
-                TryUpdateModel<Category>(model);
-                using (var database = new EbookContext())
+                if (ModelState.IsValid)
                 {
-                    database.Categories.AddOrUpdate(model);
-                    database.SaveChanges();
-                    return View(model);
+                    if (category.UploadedCategoryImage != null)
+                    {
+                    Random randomnumber = new Random();
+                    string ImageName = category.CategoryCode + randomnumber.Next() + Path.GetExtension(category.UploadedCategoryImage.FileName);
+                    category.UploadedCategoryImage.SaveAs(Server.MapPath("~/CategoryImages/" + ImageName));
+                    category.CategoryImage = ImageName;
+                    }
+               
+                    using (var database = new EbookContext())
+                    {
+                        database.Categories.AddOrUpdate(category);
+                        database.SaveChanges();
+                        Debug.WriteLine(category.UploadedCategoryImage.FileName.ToString());
+                        return View(category);
+                    }
+                }
+                else
+                {
+                    return View("AddCategory", category);
                 }
             }
             return new HttpNotFoundResult();

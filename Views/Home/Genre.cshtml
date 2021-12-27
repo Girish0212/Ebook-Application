@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Ebook_Application.Models.Category>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+
+@foreach (var item in Model)
+{
+    @Html.Partial("CategoryCard", item)
+}
+@*@Html.Partial("CategoryCard", Model.First())*@

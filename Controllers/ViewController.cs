@@ -27,5 +27,16 @@ namespace Ebook_Application.Controllers
         {
             return View(book);
         }
+
+        public ActionResult CategoryBook(string CategoryName)
+        {
+            using (var database = new EbookContext())
+            {
+                List<Book> books = database.Books.Where(x => x.CategoryName.Contains(CategoryName)).ToList();
+                ViewBag.Search = CategoryName;
+                return View(books);
+            }
+           
+        }
     }
 }

@@ -21,12 +21,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Today's Deals", "About", "Home")</li>
-                    <li>@Html.ActionLink("New Arrivals", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Genres", "Genre", "Home")</li>
+                    @*<li>@Html.ActionLink("Today's Deals", "About", "Home")</li>*@
+
                     @*<li>@Html.ActionLink("My Cart", "ShoppingCart", "Cart")</li>*@
                     @if (User.IsInRole("Admin"))
                     {
-                    <li>@Html.ActionLink("Manage", "Manage", "Admin")</li>
+                        <li>@Html.ActionLink("Manage", "Manage", "Admin")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -41,6 +42,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
     @RenderSection("scripts", required: false)
     <footer>
         <h4>&copy; @DateTime.Now.Year - E-Book For Everyone</h4>

@@ -9,6 +9,7 @@ namespace Ebook_Application.Models
 
     public partial class Book
     {
+        [Required]
         [Column(TypeName = "numeric")]
         public decimal BookId { get; set; }
 
@@ -30,10 +31,8 @@ namespace Ebook_Application.Models
         [RegularExpression("^(?!.*([ ])\\1)(?!.*([A-Za-z])\\2{2})\\w[a-zA-Z ]*$")]
         [StringLength(50)]
         public string Description { get; set; }
-
-        [Column(TypeName = "numeric")]
-        public decimal BookPrice { get; set; }
-
+        
+        [Required]
         [StringLength(50)]
         public string Image { get; set; }
 
