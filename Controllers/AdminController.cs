@@ -100,7 +100,7 @@ namespace Ebook_Application.Controllers
                     var category = database.Categories.Where(item => item.CategoryId == Id).First();
                     database.Categories.Remove(category);
                     database.SaveChanges();
-                    return RedirectToAction("Manage");
+                    return RedirectToAction("Index");
 
                 }
             }
@@ -189,7 +189,7 @@ namespace Ebook_Application.Controllers
                     var book = database.Books.Where(item => item.BookId == Id).First();
                     database.Books.Remove(book);
                     database.SaveChanges();
-                    return RedirectToAction("Manage");
+                    return RedirectToAction("Index");
 
                 }
             }

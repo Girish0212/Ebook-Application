@@ -7,7 +7,7 @@
 
 <h2>Edit E-Book</h2>
 
-@using (Html.BeginForm("AddBookToDB", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddBookToDB", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 

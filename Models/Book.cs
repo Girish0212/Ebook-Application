@@ -14,7 +14,7 @@ namespace Ebook_Application.Models
         public decimal BookId { get; set; }
 
         [Required]
-        [RegularExpression("^(?!.*([ ])\\1)(?!.*([A-Za-z])\\2{2})\\w[a-zA-Z ]*$")]
+       
         [StringLength(40)]
         public string CategoryName { get; set; }
 
@@ -28,8 +28,8 @@ namespace Ebook_Application.Models
         public string BookName { get; set; }
 
         [Required]
-        [RegularExpression("^(?!.*([ ])\\1)(?!.*([A-Za-z])\\2{2})\\w[a-zA-Z ]*$")]
-        [StringLength(50)]
+       
+        [StringLength(500)]
         public string Description { get; set; }
         
         [Required]

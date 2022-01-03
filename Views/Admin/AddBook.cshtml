@@ -3,16 +3,38 @@
 @{
     ViewBag.Title = "AddBook";
     Html.EnableClientValidation(true);
+   
 }
+<style>
+    body {
+        background: url("https://cdn.pixabay.com/photo/2016/06/01/06/26/open-book-1428428_960_720.jpg") no-repeat center center fixed;
+        background-size: cover;
+    }
 
-<h2> Add E-Book</h2>
+    .container-form {
+        position: absolute;
+       
+        background: #fff;
+        width: 700px;
+        margin-top: 30px;
+        margin-left: 25%;
+        margin-bottom: 30px;
+        margin-right: 30px;
+        padding: 40px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    }
+   
+</style>
 
-@using (Html.BeginForm("AddBookToDB", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
 
+
+
+    @using (Html.BeginForm("AddBookToDB", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+<div class="container-form">
     <div class="form-horizontal">
-
+        <center><h2> Add E-Book</h2></center>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -66,12 +88,10 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Add E-Book" class="btn btn-default" />
+                <center><input type="submit" value="Add E-Book" class="btn btn-success" /></center>
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+   
 </div>
+    }

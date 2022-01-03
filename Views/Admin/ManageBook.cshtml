@@ -6,6 +6,7 @@
 
 <h2>Manage E-Books</h2>
 
+
 <table class="table">
     <tr>
         <th>
@@ -26,7 +27,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Image)
         </th>
-       
+
         <th></th>
     </tr>
 
@@ -51,7 +52,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Image)
             </td>
-           
+
 
             <td>
                 @Html.ActionLink("Edit", "EditBook", new { id = item.BookId }) |
@@ -61,3 +62,7 @@
     }
 
 </table>
+@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@
+
