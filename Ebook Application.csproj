@@ -203,6 +203,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\EbookContext.cs" />
+    <Compile Include="Models\WishList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -304,6 +305,7 @@
     <Content Include="Views\UploadAndDownload\UploadBook.cshtml" />
     <Content Include="Views\Shared\CategoryCard.cshtml" />
     <Content Include="Views\View\CategoryBook.cshtml" />
+    <Content Include="Views\View\Favourite.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

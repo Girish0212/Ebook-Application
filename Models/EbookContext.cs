@@ -14,6 +14,8 @@ namespace Ebook_Application.Models
 
         public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
+
+        public virtual DbSet<WishList> WishLists { get; set; }
         //public virtual DbSet<Orders> Orders { get; set; }
 
         //public virtual DbSet<CartList> Cart { get; set; }

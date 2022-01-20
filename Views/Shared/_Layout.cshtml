@@ -81,27 +81,28 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Genres", "Genre", "Home")</li>
+                    <li>@Html.ActionLink("My Favourites", "Favourite", "View")</li>
                     @*<li>@Html.ActionLink("Today's Deals", "About", "Home")</li>*@
 
                     @*<li>@Html.ActionLink("My Cart", "ShoppingCart", "Cart")</li>*@
                     @if (User.IsInRole("Admin"))
                     {
-                     <li>
-                     <div class="dropdown">
-                        <button class="dropbtn">Manage</button>
-                        <div class="dropdown-content">
-                            <a href="/Admin/AddBook">Add E-Book Details</a>
-                            <a href="/Admin/ManageBook">Manage E-Books</a>
-                            <a href="/Admin/AddCategory">Add Category</a>
-                            <a href="/Admin/ManageCategory">Manage Category</a>
-                            <a href="/UploadAndDownload/UploadBook">Upload Book</a>
-                            <a href="/Admin/UserList">List of users</a>
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn">Manage</button>
+                                <div class="dropdown-content">
+                                    <a href="/Admin/AddBook">Add E-Book Details</a>
+                                    <a href="/Admin/ManageBook">Manage E-Books</a>
+                                    <a href="/Admin/AddCategory">Add Category</a>
+                                    <a href="/Admin/ManageCategory">Manage Category</a>
+                                    <a href="/UploadAndDownload/UploadBook">Upload Book</a>
+                                    <a href="/Admin/UserList">List of users</a>
 
-                        </div>
-                     </div>
+                                </div>
+                            </div>
 
-                    @*@Html.ActionLink("Manage", "Manage", "Admin")*@
-                      </li>
+                            @*@Html.ActionLink("Manage", "Manage", "Admin")*@
+                        </li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
