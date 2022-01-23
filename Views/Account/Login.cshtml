@@ -2,232 +2,222 @@
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
+    Html.EnableClientValidation(true);
 }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
 }
+
 <!DOCTYPE html>
 <style>
-    .limiter {
-        padding:10px;
-        width: 100%;
-        margin: 0 auto;
+
+    body {
+        background: #222D32;
+        font-family: 'Roboto', sans-serif;
     }
 
-    .container-login100 {
-        width: 100%;
-        min-height: 100vh;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        background: #9053c7;
-        background: -webkit-linear-gradient(-135deg, #c850c0, #4158d0);
-        background: -o-linear-gradient(-135deg, #c850c0, #4158d0);
-        background: -moz-linear-gradient(-135deg, #c850c0, #4158d0);
-        background: linear-gradient(-135deg, #c850c0, #4158d0);
-    }
-
-    .wrap-login100 {
-        padding: 177px 90px 33px 85px;
-    }
-
-    .login100-pic {
-        width: 35%;
-    }
-
-    .login100-pic img {
-            max-width: 100%;
-    }
-
-    .login100-form-title {
-        font-family: Poppins-Bold;
-        font-size: 24px;
-        color: #333333;
-        line-height: 1.2;
+    .login-box {
+        margin-top: 75px;
+        height: auto;
+        background: #1A2226;
         text-align: center;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     }
 
-    .container-login100-form-btn {
-        width: 100%;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding-top: 20px;
+    .login-key {
+        height: 100px;
+        font-size: 80px;
+        line-height: 100px;
+        background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
-    .login100-form-btn {
-        font-family: Montserrat-Bold;
-        font-size: 15px;
-        line-height: 1.5;
-        color: #fff;
-        text-transform: uppercase;
-        width: 100%;
-        height: 50px;
-        border-radius: 25px;
-        background: #57b846;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 25px;
-        -webkit-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        transition: all 0.4s;
+    .login-title {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #ECF0F5;
     }
 
-        .login100-form-btn:hover {
-            background: #333333;
+    .login-form {
+        margin-top: 25px;
+        text-align: left;
+    }
+
+    input[type=text] {
+        background-color: #1A2226;
+        border: none;
+        border-bottom: 2px solid #0DB8DE;
+        border-top: 0px;
+        border-radius: 0px;
+        font-weight: bold;
+        outline: 0;
+        margin-bottom: 20px;
+        padding-left: 0px;
+        color: #ECF0F5;
+    }
+
+    input[type=password] {
+        background-color: #1A2226;
+        border: none;
+        border-bottom: 2px solid #0DB8DE;
+        border-top: 0px;
+        border-radius: 0px;
+        font-weight: bold;
+        outline: 0;
+        padding-left: 0px;
+        margin-bottom: 20px;
+        color: #ECF0F5;
+    }
+
+    .form-group {
+        margin-bottom: 40px;
+        outline: 0px;
+    }
+
+    .form-control:focus {
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-bottom: 2px solid #0DB8DE;
+        outline: 0;
+        background-color: #1A2226;
+        color: #ECF0F5;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 0;
+    }
+
+    label {
+        margin-bottom: 0px;
+    }
+
+    .form-control-label {
+        font-size: 10px;
+        color: #6C6C6C;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .btn-outline-primary {
+        border-color: #0DB8DE;
+        color: #0DB8DE;
+        border-radius: 0px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+        .btn-outline-primary:hover {
+            background-color: #0DB8DE;
+            right: 0px;
         }
 
-    .wrap-input100 {
-        position: relative;
-        width: 100%;
-        z-index: 1;
-        margin-bottom: 10px;
+    .login-btm {
+        float: left;
     }
 
-    .input100 {
-        font-family: Poppins-Medium;
-        font-size: 15px;
-        line-height: 1.5;
-        color: #666666;
-        display: block;
-        width: 100%;
-        background: #e6e6e6;
-        height: 50px;
-        border-radius: 25px;
-        padding: 0 30px 0 68px;
+    .login-button {
+        padding-right: 0px;
+        text-align: right;
+        margin-bottom: 25px;
     }
 
-
-    /*------------------------------------------------------------------
-[ Focus ]*/
-    .focus-input100 {
-        display: block;
-        position: absolute;
-        border-radius: 25px;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        width: 100%;
-        height: 100%;
-        box-shadow: 0px 0px 0px 0px;
-        color: rgba(87,184,70, 0.8);
+    .login-text {
+        text-align: left;
+        padding-left: 0px;
+        color: #A2A4A4;
     }
 
-
-    .symbol-input100 {
-        font-size: 15px;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        align-items: center;
-        position: absolute;
-        border-radius: 25px;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        padding-left: 35px;
-        pointer-events: none;
-        color: #666666;
-        -webkit-transition: all 0.4s;
-        -o-transition: all 0.4s;
-        -moz-transition: all 0.4s;
-        transition: all 0.4s;
+    .loginbttm {
+        padding: 0px;
     }
-
-    .input100:focus + .focus-input100 + .symbol-input100 {
-        color: #57b846;
-        padding-left: 28px;
-    }
-
-
-
-
-
 </style>
 <html lang="en">
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
-    
+
+
 </head>
 <body>
 
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100">
-                <div class="login100-pic">
-                    <img src="~/BookImages/img-01.png" alt="IMG">
+
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-red-600" })
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-2"></div>
+                <div class="col-lg-6 col-md-8 login-box">
+                    <div class="col-lg-12 login-key">
+                        <i class="fa fa-key" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-lg-12 login-title">
+                        Welcome to E-Book For Everyone
+                    </div>
+
+                    <div class="col-lg-12 login-form">
+                        <div class="col-lg-12 login-form">
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-control-label">USERNAME</label>
+                                    <input type="text" name="Email" class="form-control">
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-control-label">PASSWORD</label>
+                                    <input type="password" name="Password" class="form-control" i>
+                                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="col-lg-12 loginbttm">
+                                    <div class="col-lg-6 login-btm login-text">
+                                        <!-- Error Message -->
+                                    </div>
+                                    <div class="col-lg-6 login-btm login-button">
+                                        <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                                    </div>
+                                </div>
+
+
+                                <a class="form-group"
+                                   href="@Url.Action("Register", "Account")">
+                                    Don't have an account?Register here
+                                </a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-2"></div>
                 </div>
-
-                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <span class="login100-form-title">
-                        Member Login
-                    </span>
-                    <hr />
-
-                    <div class="wrap-input100">
-                        <input class="input100" type="text" name="Email" placeholder="Email">
-                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </span>
-                    </div>
-
-                    <div class="wrap-input100">
-                        <input class="input100" type="password" name="Password" placeholder="Password">
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                        <span class="focus-input100"></span>
-                        <span class="symbol-input100">
-                            <i class="fa fa-lock" aria-hidden="true"></i>
-                        </span>
-                    </div>
-
-                  
-                    <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
-                            Login
-                        </button>
-                    </div>
-
-
-                    <div class="text-center p-t-136">
-                        @Html.ActionLink("Register as a new user", "Register")
-                    </div>
-                }
-
             </div>
-                </div>
-    </div>
+        </div>
 
+
+
+
+
+
+
+    }
 
 
 
@@ -240,8 +230,9 @@
     <script src="vendor/select2/select2.min.js"></script>
     <!--===============================================================================================-->
     <script src="vendor/tilt/tilt.jquery.min.js"></script>
-    
-   
+
+
 
 </body>
 </html>
+

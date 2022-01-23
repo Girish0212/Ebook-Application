@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
 <style>
+    body{
+        margin-bottom:10px;
+    }
     /* Dropdown Button */
     .dropbtn {
         background-color: #04AA6D;
@@ -52,10 +55,11 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: orangered;
-        color: white;
+        font-display:block;
+        color: black;
         text-align: center;
-       margin-top:10px;
+        margin-top:10px;
+        
     }
 </style>
 <html>
@@ -91,17 +95,17 @@
                             <div class="dropdown">
                                 <button class="dropbtn">Manage</button>
                                 <div class="dropdown-content">
-                                    <a href="/Admin/AddBook">Add E-Book Details</a>
-                                    <a href="/Admin/ManageBook">Manage E-Books</a>
-                                    <a href="/Admin/AddCategory">Add Category</a>
-                                    <a href="/Admin/ManageCategory">Manage Category</a>
+                                    <a href="/Book/AddBook">Add E-Book Details</a>
+                                    <a href="/Book/ManageBook">Manage E-Books</a>
+                                    <a href="/Category/AddCategory">Add Category</a>
+                                    <a href="/Category/ManageCategory">Manage Category</a>
                                     <a href="/UploadAndDownload/UploadBook">Upload Book</a>
-                                    <a href="/Admin/UserList">List of users</a>
+                                    <a href="/Book/UserList">List of users</a>
 
                                 </div>
                             </div>
 
-                            @*@Html.ActionLink("Manage", "Manage", "Admin")*@
+                           
                         </li>
                     }
                 </ul>
@@ -120,9 +124,9 @@
     @Scripts.Render("~/Scripts/jquery.validate.min.js")
     @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
     @RenderSection("scripts", required: false)
-    <footer style="position:fixed;">
+    @*<footer style="position: fixed inherit" >
         <h4>&copy; @DateTime.Now.Year - E-Book For Everyone</h4>
-    </footer>
+    </footer>*@
 </body>
 </html>
 

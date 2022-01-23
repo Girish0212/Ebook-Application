@@ -86,14 +86,14 @@
         <div class="carousel-inner">
 
             <div class="item active">
-                <img src="~/BookImages/book3.jpg" alt="Los Angeles" style="width:100%; height:400px; ">
+                <img src="~/Content/BookImages/book3.jpg" alt="Los Angeles" style="width:100%; height:400px; ">
                 <div class="carousel-caption">
                     <p>Many people, myself among them, feel better at the mere sight of a book</p>
                 </div>
             </div>
 
             <div class="item">
-                <img src="~/BookImages/book1.jpg" alt="Chicago" style="width: 100%; height:400px;">
+                <img src="~/Content/BookImages/book1.jpg" alt="Chicago" style="width: 100%; height:400px;">
                 <div class="carousel-caption">
                     <p>
                         Good friends, good books, and a sleepy conscience: this is the ideal life
@@ -102,7 +102,7 @@
             </div>
 
             <div class="item">
-                <img src="~/BookImages/book4.jpg" alt="New York" style="width: 100%; height: 400px;">
+                <img src="~/Content/BookImages/book4.jpg" alt="New York" style="width: 100%; height: 400px;">
                 <div class="carousel-caption">
                     <p>If you don’t like to read, you haven’t found the right book</p>
                 </div>
@@ -142,8 +142,3 @@
     </div>
 
 </div>
-@*Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-@Html.PagedListPager(Model, page => Url.Action("Index",
-    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))*@
-
-

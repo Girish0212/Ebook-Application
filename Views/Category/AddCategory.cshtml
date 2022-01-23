@@ -24,7 +24,7 @@
     }
 </style>
 
-@using (Html.BeginForm("AddCategoryToDB", "Admin", FormMethod.Post,new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("AddCategoryToDB", "Category", FormMethod.Post,new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 <div class="container-form">

@@ -86,7 +86,7 @@ namespace Ebook_Application.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Password is Invalid, Please check your password before login");
                     return View(model);
             }
         }

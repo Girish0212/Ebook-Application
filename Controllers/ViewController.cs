@@ -55,10 +55,7 @@ namespace Ebook_Application.Controllers
             }
            
         }
-        //        //public ActionResult AddFavourite()
-        //        //{
-        //        //    return View();
-        //        //}
+       
 
         public ActionResult AddFavourite(string BookName)
         {

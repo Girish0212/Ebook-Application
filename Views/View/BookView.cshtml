@@ -105,7 +105,7 @@
         }
 
     .custom-btn {
-        width: 130px;
+        width: 230px;
         height: 40px;
         color: #fff;
         border-radius: 5px;
@@ -186,7 +186,7 @@
                     <div class="preview col-md-6">
 
                         <div class="preview-pic tab-content">
-                            <div class="tab-pane active" id="pic-1"><img src="~/BookImages/@Model.Image" height="500px" /></div>
+                            <div class="tab-pane active" id="pic-1"><img src="~/Content/BookImages/@Model.Image" height="500px" /></div>
 
                         </div>
 
@@ -203,13 +203,16 @@
 
                             </a>
                         </span>
-                        <span>
-                            
-                            
+                        <div>
+                            <span>
+
+
                                 <a class="custom-btn btn-15" href="@Url.Action("AddFavourite", "View", new {bookname=Model.BookName})">
-                                    <span> <i class="fa fa-star" aria-hidden="true">Add To Favourites</i> </span>
-                                 </a>
-                        </span>
+                                    <span> <i class="fa fa-star" aria-hidden="true">     Add To Favourites</i> </span>
+                                </a>
+                            </span>
+                        </div>
+                       
 
 
 

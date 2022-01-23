@@ -22,7 +22,7 @@ namespace Ebook_Application.Controllers
                 if (file.ContentLength > 0)
                 {
                     string _FileName = Path.GetFileName(file.FileName);
-                    string _path = Path.Combine(Server.MapPath("~/UploadedBooks"), _FileName);
+                    string _path = Path.Combine(Server.MapPath("~/App_Data/UploadedBooks"), _FileName);
                     file.SaveAs(_path);
                 }
                 ViewBag.Message = "File Uploaded Successfully!!";
@@ -39,7 +39,7 @@ namespace Ebook_Application.Controllers
         {
             
             //Build the File Path.
-            string path = Server.MapPath("~/UploadedBooks/"+ fileName +".pdf");
+            string path = Server.MapPath("~/App_Data/UploadedBooks/"+ fileName +".pdf");
             FileInfo file = new FileInfo(path);
             
            
